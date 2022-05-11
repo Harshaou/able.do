@@ -1,21 +1,36 @@
-import { useEffect } from 'react';
-import data from './data.json';
-import generateCombinations from './hook';
+import { useState } from 'react';
+import generateCombinations from './helperFunction';
 
 function App() {
-  useEffect(() => {
-    let result = generateCombinations(data.attributes);
-    console.log(result);
-  }, []);
+  const [jsonInput, setJsonInput] = useState(null);
+  const [output, setOutput] = useState();
+
+  const handleChange = () => {
+    try {
+      let inputData = JSON.parse(jsonInput);
+      let result = generateCombinations(inputData.attributes);
+      setOutput(result);
+    } catch (error) {
+      alert('Invalid JSON');
+    }
+  };
 
   return (
     <div className="container">
       <h1 className="title">Generate Combinations</h1>
-      {/* <div className="contain">
-        <textarea rows="16" cols="70" />
-        <button>Generate Combinations</button>
-        <div className="display">Result</div>
-      </div> */}
+      <div className="contain">
+        <textarea
+          value={jsonInput || ''}
+          onChange={(e) => setJsonInput(e.target.value)}
+          rows="16"
+          cols="70"
+        />
+        <button onClick={handleChange}>Generate Combinations</button>
+        <div className="display">
+          <h4>Result</h4>
+          <p>{output}</p>
+        </div>
+      </div>
     </div>
   );
 }
