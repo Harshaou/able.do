@@ -28,13 +28,9 @@ const generateCombinations = (arr) => {
       }
     }
     helper([], 0);
-    return r.flat();
+    return r;
   }
-  let result = createCombinations(...outerArgs);
-  return JSON.stringify(result)
-    .slice(1, -1)
-    .replace(/[{}]/g, '')
-    .replaceAll(',', '|');
+  return createCombinations(...outerArgs);
 };
 
 export default generateCombinations;

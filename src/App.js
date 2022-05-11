@@ -10,6 +10,7 @@ function App() {
       let inputData = JSON.parse(jsonInput);
       let result = generateCombinations(inputData.attributes);
       setOutput(result);
+      console.log(result);
     } catch (error) {
       alert('Invalid JSON');
     }
@@ -19,16 +20,31 @@ function App() {
     <div className="container">
       <h1 className="title">Generate Combinations</h1>
       <div className="contain">
-        <textarea
-          value={jsonInput || ''}
-          onChange={(e) => setJsonInput(e.target.value)}
-          rows="16"
-          cols="70"
-        />
-        <button onClick={handleChange}>Generate Combinations</button>
-        <div className="display">
+        <div className="input-section">
+          <textarea
+            className="input-area"
+            value={jsonInput || ''}
+            onChange={(e) => setJsonInput(e.target.value)}
+            rows="16"
+          />
+        </div>
+        <div className="btn-section">
+          <button onClick={handleChange}>Generate Combinations</button>
+        </div>
+        <div className="display-section">
           <h4>Result</h4>
-          <p>{output}</p>
+          {output?.length > 0 &&
+            output.map((arr, index) =>
+              arr.map((item) => {
+                return (
+                  <div key={index}>
+                    <p style={{ display: 'inline' }}>
+                      {item.color}, {item.length}, {item.finish}
+                    </p>
+                  </div>
+                );
+              })
+            )}
         </div>
       </div>
     </div>

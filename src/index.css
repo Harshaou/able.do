@@ -33,10 +33,37 @@ h1,h2{
     justify-content: space-between;
 }
 
-.display{
-    width: 400px;
+.input-section{
+    flex: 4;
+    width: 100%;
+}
+
+.input-area{
+    width: 100%;
+}
+
+.btn-section{
+    flex: 2;
+    display: grid;
+    place-items: center;
+}
+
+.btn-section button{
+    padding: 10px;
+}
+
+.display-section{
+    flex: 4;
     min-height: 270px;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
+    overflow: scroll;
+}
+
+.display-section p{
+    max-width: 400px;
+   
+    overflow: scroll;
+    
 }
