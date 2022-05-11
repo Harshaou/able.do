@@ -1,11 +1,12 @@
+import { useEffect } from 'react';
 import data from './data.json';
+import generateCombinations from './hook';
 
 function App() {
-  const generateCombinations = () => {
-    console.log(data);
-  };
-
-  generateCombinations();
+  useEffect(() => {
+    let result = generateCombinations(data.attributes);
+    console.log(result);
+  }, []);
 
   return (
     <div className="container">
