@@ -37,6 +37,7 @@ function App() {
             placeholder="Paste your JSON here.."
             className="input-area"
             value={jsonInput || ''}
+            rows={30}
             onChange={(e) => setJsonInput(e.target.value)}
           />
         </div>
