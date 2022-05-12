@@ -70,6 +70,10 @@ h1,h2{
     padding: 10px;
 }
 
+.display-section h4{
+    margin-left: 10px;
+}
+
 .display-section .item{
     padding: 10px;
     margin: 10px;
