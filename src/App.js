@@ -10,9 +10,7 @@ function App() {
       let inputData = JSON.parse(jsonInput);
       let result = generateCombinations(inputData.attributes);
       setOutput(result);
-      console.log(result);
     } catch (error) {
-      setOutput(null);
       alert('Invalid JSON');
     }
   };
