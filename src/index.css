@@ -9,7 +9,7 @@
 body {
    font-family: 'Inter', sans-serif;
    font-size: 16px;
-   background-color: #a1c3ff
+   background-color: #7a88b1
 }
 
 h1,h2{
@@ -23,6 +23,8 @@ h1,h2{
 
 .title{
     text-align: center;
+    color: white;
+    text-transform: uppercase;
 }
 
 .contain{
@@ -36,18 +38,19 @@ h1,h2{
 }
 
 .input-section{
-    flex: 4;
+    flex: 4.5;
     height: 490px;
     width: 100%;
 }
 
 .input-area{
+    padding: 10px;
     height: 100%;
     width: 100%;
 }
 
 .btn-section{
-    flex: 2;
+    flex: 1;
     display: grid;
     place-items: center;
 }
@@ -57,9 +60,9 @@ h1,h2{
 }
 
 .display-section{
-    flex: 4;
+    flex: 4.5;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 4px;
     width: 100%;
     height: 500px;
     overflow: scroll;
@@ -69,6 +72,14 @@ h1,h2{
 .display-section .item{
     padding: 10px;
     margin: 10px;
+}
+
+.no-data{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 

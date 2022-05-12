@@ -12,6 +12,7 @@ function App() {
       setOutput(result);
       console.log(result);
     } catch (error) {
+      setOutput(null);
       alert('Invalid JSON');
     }
   };
@@ -25,24 +26,30 @@ function App() {
     return color;
   }
 
+  let renderCombination = output?.length && jsonInput;
+
   return (
     <div className="container">
       <h1 className="title">Generate Combinations</h1>
       <div className="contain">
         <div className="input-section">
           <textarea
+            placeholder="Paste your JSON here.."
             className="input-area"
             value={jsonInput || ''}
             onChange={(e) => setJsonInput(e.target.value)}
-            rows="16"
           />
         </div>
         <div className="btn-section">
           <button onClick={handleChange}>Generate Combinations</button>
         </div>
         <div className="display-section">
-          <h4>Result: {output?.length}</h4>
-          {output?.length > 0 &&
+          {renderCombination ? (
+            <h4>Result: {output?.length}</h4>
+          ) : (
+            <h4 className="no-data">No data to display..</h4>
+          )}
+          {renderCombination &&
             output.map((arr, index) => {
               let result = JSON.stringify(arr)
                 .slice(1, -1)
@@ -50,10 +57,9 @@ function App() {
                 .replaceAll(',', '|')
                 .replaceAll('"', ' ');
               return (
-                <div>
+                <div key={index}>
                   <p
                     className="item"
-                    key={index}
                     style={{
                       backgroundColor: getRandomColor(),
                     }}
