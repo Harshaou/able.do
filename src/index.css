@@ -31,14 +31,18 @@ h1,h2{
     gap: 20px;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
+    
 }
 
 .input-section{
     flex: 4;
+    height: 490px;
     width: 100%;
 }
 
 .input-area{
+    height: 100%;
     width: 100%;
 }
 
@@ -54,16 +58,32 @@ h1,h2{
 
 .display-section{
     flex: 4;
-    min-height: 270px;
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    width: 100%;
+    height: 500px;
     overflow: scroll;
+    padding: 10px;
 }
 
-.display-section p{
-    max-width: 400px;
-   
-    overflow: scroll;
-    
+.display-section .item{
+    padding: 10px;
+    margin: 10px;
 }
+
+
+
+@media (max-width: 991px){
+    .contain{
+        margin-top: 3%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+}
+
+
+
