@@ -5,13 +5,22 @@ function App() {
   const [jsonInput, setJsonInput] = useState(null);
   const [output, setOutput] = useState();
 
-  const handleChange = () => {
+  const handleGenerateCombination = () => {
     try {
       let inputData = JSON.parse(jsonInput);
       let result = generateCombinations(inputData.attributes);
       setOutput(result);
     } catch (error) {
       alert('Invalid JSON');
+    }
+  };
+
+  const handleChange = (e) => {
+    if (e) {
+      setJsonInput(e);
+    } else {
+      setJsonInput(null);
+      setOutput(null);
     }
   };
 
@@ -24,8 +33,6 @@ function App() {
     return color;
   }
 
-  let renderCombination = output?.length && jsonInput;
-
   return (
     <div className="container">
       <h1 className="title">Generate Combinations</h1>
@@ -36,19 +43,21 @@ function App() {
             className="input-area"
             value={jsonInput || ''}
             rows={30}
-            onChange={(e) => setJsonInput(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
         </div>
         <div className="btn-section">
-          <button onClick={handleChange}>Generate Combinations</button>
+          <button onClick={handleGenerateCombination}>
+            Generate Combinations
+          </button>
         </div>
         <div className="display-section">
-          {renderCombination ? (
+          {output?.length ? (
             <h4>Result: {output?.length}</h4>
           ) : (
             <h4 className="no-data">No data to display..</h4>
           )}
-          {renderCombination &&
+          {output?.length &&
             output.map((arr, index) => {
               let result = JSON.stringify(arr)
                 .slice(1, -1)
